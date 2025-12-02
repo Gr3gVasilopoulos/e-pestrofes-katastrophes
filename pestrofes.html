@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Countdown Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #2e3192;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    #countdown {
+      font-size: 120px;
+      font-style: bold;
+      color: #00aeef;
+      margin-bottom: 20px;
+    }
+    #final-image {
+      display: none;
+      max-width: 70%;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <div id="countdown">10</div>
+  <img id="final-image" src="YOU SNOOZE, YOU LOSE.png" alt="Final" width="400" />
+
+  <script>
+    let timeLeft = 10; // seconds
+    const countdownEl = document.getElementById('countdown');
+    const finalImage = document.getElementById('final-image');
+
+    const timer = setInterval(() => {
+      timeLeft--;
+      countdownEl.textContent = timeLeft;
+
+      if (timeLeft <= 0) {
+        clearInterval(timer);
+        countdownEl.style.display = 'none';
+        finalImage.style.display = 'block';
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
